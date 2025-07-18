@@ -6,7 +6,7 @@ RAX is a compiler-like frontend for JAX that adds shape/type safety and memory c
 
 ### From GitHub
 ```bash
-pip install git+https://github.com/viraatdas/rax.git@rax
+pip install git+https://github.com/viraatdas/rax.git
 ```
 
 ### For Development
