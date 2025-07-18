@@ -3,10 +3,24 @@
 
 import argparse
 import sys
+import traceback
 from pathlib import Path
 
 from . import __version__
 from .runner import run_script
+from .validator import RAXValidationError, RAXShapeError, RAXMathError
+
+
+def format_rax_error(e: Exception) -> str:
+    """Format RAX errors for display."""
+    error_msg = str(e)
+    
+    # If the error message already starts with [RAX], don't duplicate it
+    if error_msg.startswith("\n[RAX]") or error_msg.startswith("[RAX]"):
+        return error_msg
+    
+    # Otherwise, add RAX prefix
+    return f"[RAX] Error: {error_msg}"
 
 
 def main(argv=None):
@@ -116,10 +130,19 @@ Future commands:
                 verbose=args.verbose
             )
             return 0
+        except (RAXValidationError, RAXShapeError, RAXMathError) as e:
+            # Handle RAX-specific errors with clean formatting
+            print(format_rax_error(e), file=sys.stderr)
+            if args.verbose:
+                print("\n--- Traceback ---", file=sys.stderr)
+                traceback.print_exc()
+            return 1
+        except KeyboardInterrupt:
+            print("\n[RAX] Interrupted by user", file=sys.stderr)
+            return 130
         except Exception as e:
             print(f"\n[RAX] Error: {e}", file=sys.stderr)
             if args.verbose:
-                import traceback
                 traceback.print_exc()
             return 1
     

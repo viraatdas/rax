@@ -4,8 +4,16 @@ RAX is a compiler-like frontend for JAX that adds shape/type safety and memory c
 
 ## Installation
 
+### From GitHub
 ```bash
-pip install -e .  # From the repository root
+pip install git+https://github.com/viraatdas/rax.git@rax
+```
+
+### For Development
+```bash
+git clone -b rax https://github.com/viraatdas/rax.git
+cd rax
+pip install -e .
 ```
 
 ## Quick Start
@@ -100,4 +108,4 @@ Options:
 - `rax compile` - Validate without execution
 - `rax trace` - Output compiled JAXPR for debugging
 - `rax lint` - Detect missing annotations
-- `rax export` - Export to XLA/MLIR format 
+- `rax export` - Export to XLA/MLIR format

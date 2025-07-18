@@ -44,8 +44,8 @@ dev = [
 rax = "rax.cli:main"
 
 [project.urls]
-"Homepage" = "https://github.com/jax-ml/rax"
-"Bug Tracker" = "https://github.com/jax-ml/rax/issues"
+"Homepage" = "https://github.com/viraatdas/rax"
+"Bug Tracker" = "https://github.com/viraatdas/rax/issues"
 
 [tool.setuptools.packages.find]
 include = ["rax*"]
