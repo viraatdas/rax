@@ -1,4 +1,4 @@
-# RAX: A Safer JAX Frontend
+# RAX: A Safe JAX Frontend
 
 RAX is a compiler-like frontend for JAX that adds shape/type safety and memory correctness guarantees to your JAX code, without requiring any code changes beyond adding type annotations.
 
