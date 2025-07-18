@@ -53,7 +53,7 @@ When you run `rax run script.py`, RAX:
 3. **Enforces shapes at runtime** via beartype integration
 4. **Traces functions symbolically** using `jax.make_jaxpr` to catch shape/math errors
 5. **JIT-compiles by default** for performance
-6. **Monkeypatches JAX operations** (optional) to validate shapes in eager mode
+6. **Monkeypatches JAX operations** to validate shapes 
 
 ## Safety Guarantees
 
